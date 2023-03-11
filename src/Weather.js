@@ -40,7 +40,7 @@ export default function Weather(props) {
           <input
             type="submit"
             value="Search"
-            className="Weather-search-button form-control"
+            className="Weather-search-button"
           />
           <input
             type="button"
