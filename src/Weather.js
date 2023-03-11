@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Weather.css";
 
 export default function Weather(props) {
     let [temperature, setTemperature] = useState(null);
@@ -11,57 +12,58 @@ export default function Weather(props) {
 
 
   return (
-    <div className="row header">
     <div>
-      <div className="calendar">
-        Last updated: 12PM Feb 17 2023
+    <div className="row">
+      <div className="col-5">
+        Last updated: <span className="Weather-current-time">12PM Feb 17 2023</span>
       </div>
-    </div>
+
 
     <div className="col-5">
-      <div className="d-flex search-form">
-        <span className="units">
-          <a href="/#" id="celsius" className="active">
+      <div className="Weather-search-form">
+        <span className="Weather-units">
+          <a href="/#" className="active">
             °C
           </a>
           |
-          <a href="/#" id="fahrenheit">
+          <a href="/#">
             °F
           </a>
         </span>
-        <form className="city-search" id="city-search">
+        <form className="Weather-city-search">
           <input
             type="search"
             placeholder="Enter a city"
-            className="enter-city"
+            className="Weather-enter-city"
             autoComplete="off"
           />
           <input
             type="submit"
             value="Search"
-            className="search-button formControl"
+            className="Weather-search-button form-control"
           />
           <input
             type="button"
             value="📍"
-            className="current-location-emoji"
+            className="Weather-current-location-emoji"
           />
         </form>
       </div>
     </div>
+    </div>
 
   <div>
-      <div className="city-name">{props.city}</div>
-      <div className="weather-description">Clear sky</div>
+      <div className="Weather-city-name">{props.city}</div>
+      <div className="Weather-description">Clear sky</div>
       <img
         src="https://openweathermap.org/img/wn/04d@2x.png"
-        className="weather-icon"
+        className="Weather-icon"
         alt="weather icon"
       />
-      <div className="temperature">{Math.round(temperature)}°C</div>
+      <div className="Weather-main-temperature">{Math.round(temperature)}°C</div>
     </div>
     <div>
-      <div className="condition-list">
+      <div className="Weather-condition-list">
         <ul>
           <li>High: 19°C</li>
           <li>Low: 10°C</li>
@@ -70,5 +72,6 @@ export default function Weather(props) {
       </div>
     </div>
     </div>
+
   );
 }

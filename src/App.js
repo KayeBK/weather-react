@@ -10,8 +10,8 @@ export default function App() {
         <WeatherForecast />
       </div>
 
-      <div className="link-footer">
-        <a href="https://github.com/KayeBK/weather-react">Open-source code on GitHub</a>, developed by Kaye Kinser.
+      <div className="App-link-footer">
+        <a href="https://github.com/KayeBK/weather-react" target="_blank" rel="noreferrer">Open-source code on GitHub</a>, developed by Kaye Kinser.
       </div>
     </div>
   );
