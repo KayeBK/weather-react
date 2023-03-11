@@ -1,11 +1,22 @@
-import React from "react";
-import Time from "./Time";
-import City from "./City";
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function Weather(props) {
+    let [temperature, setTemperature] = useState(null);
+    function showTemperature(response) {
+        setTemperature(response.data.main.temp);
+    }
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=ab8e7ef210556986d1c9a75d6007b825&units=metric`;
+    axios.get(url).then(showTemperature);
+
+
   return (
     <div className="row header">
-    <Time time="12PM" calendar="Feb 17 2023" />
+    <div>
+      <div className="calendar">
+        Last updated: 12PM Feb 17 2023
+      </div>
+    </div>
 
     <div className="col-5">
       <div className="d-flex search-form">
@@ -39,13 +50,22 @@ export default function Weather(props) {
       </div>
     </div>
 
-  <City name="San Antonio" condition="Clear sky" temperature={19} />
+  <div>
+      <div className="city-name">{props.city}</div>
+      <div className="weather-description">Clear sky</div>
+      <img
+        src="https://openweathermap.org/img/wn/04d@2x.png"
+        className="weather-icon"
+        alt="weather icon"
+      />
+      <div className="temperature">{Math.round(temperature)}°C</div>
+    </div>
     <div>
       <div className="condition-list">
         <ul>
-          <li>High: {props.high}°C</li>
-          <li>Low: {props.low}°C</li>
-          <li>Humidity: {props.humidity}%</li>
+          <li>High: 19°C</li>
+          <li>Low: 10°C</li>
+          <li>Humidity: 10%</li>
         </ul>
       </div>
     </div>

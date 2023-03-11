@@ -1,14 +1,12 @@
 import './App.css';
-import Time from "./Time";
 import Weather from "./Weather";
-import City from "./City";
 import WeatherForecast from "./WeatherForecast";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <Weather high={34} low={19} humidity={10} />
+        <Weather city="San Antonio" />
         <WeatherForecast />
       </div>
 
