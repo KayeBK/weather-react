@@ -1,38 +1,148 @@
 .App {
+  font-family: sans-serif;
+}
+
+body {
+  background: radial-gradient(
+    506px at 50.6% 16.5%,
+    rgb(239, 252, 250) 5.5%,
+    rgb(154, 192, 206) 100.2%
+  );
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.container {
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  display: block;
+  margin: 100px auto 0 auto;
+  max-width: 60%;
+  padding: 40px;
+}
+
+.city-name {
+  text-transform: capitalize;
+  font-weight: 600;
+  text-align: left;
+  font-size: 20px;
+}
+
+.weather-description {
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.condition-list {
+  font-size: 14px;
+}
+
+.emoji {
+  font-size: 40px;
+}
+
+#units .active {
+  color: black;
+  cursor: default;
+}
+
+#units .active:hover {
+  text-decoration: none;
+}
+
+.main-time,
+.main-date {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.weather-icon {
+  width: 140px;
+}
+
+.temperature {
+  font-size: 40px;
+  line-height: 3;
+}
+
+.main-unit {
+  font-size: 20px;
+  position: relative;
+  bottom: 14px;
+}
+
+.high-low {
+  font-size: 11px;
+  position: relative;
+  bottom: 4px;
+}
+
+.units {
+  font-size: 16px;
+  line-height: 2.2;
+  padding-right: 20px;
+  font-weight: bold;
+}
+
+.search-button {
+  border: 1px solid black;
+  padding: 3px;
+  width: 60px;
+  display: inline;
+  background: none;
+  font-size: 16px;
+}
+
+.enter-city {
+  border-radius: 5px;
+  padding: 3px;
+  border: 1px solid (0, 0, 0, 0.3);
+}
+
+.current-location-emoji {
+  font-size: 22px;
+  background: none;
+  border: none;
+}
+
+.fahrenheit,
+.celsius {
+  text-decoration: none;
+  padding: 10px;
+}
+
+.forecast-title {
+  font-weight: 600;
+  text-align: center;
+  font-size: 30px;
+}
+
+.link-footer {
+  font-size: 16px;
+  color: white;
+  padding-bottom: 234px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.link-footer a {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.weather-forecast {
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.weather-forecast-temperature-max {
+  font-weight: bold;
 }
+
+#forecast-unit {
+  font-size: 13px;
+  text-align: center;
+}
+
