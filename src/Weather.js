@@ -14,28 +14,18 @@ export default function Weather(props) {
   return (
     <div>
     <div className="row">
-      <div className="col-5">
+      <div className="col-8">
         Last updated: <span className="Weather-current-time">12PM Feb 17 2023</span>
       </div>
 
-
-    <div className="col-5">
-      <div className="Weather-search-form">
-        <span className="Weather-units">
-          <a href="/#" className="active">
-            °C
-          </a>
-          |
-          <a href="/#">
-            °F
-          </a>
-        </span>
+      <div className="col-4 Weather-search-form">
         <form className="Weather-city-search">
           <input
             type="search"
             placeholder="Enter a city"
             className="Weather-enter-city"
             autoComplete="off"
+            autoFocus="on"
           />
           <input
             type="submit"
@@ -50,19 +40,22 @@ export default function Weather(props) {
         </form>
       </div>
     </div>
-    </div>
 
-  <div>
-      <div className="Weather-city-name">{props.city}</div>
-      <div className="Weather-description">Clear sky</div>
+    <div className="Weather-city-name">{props.city}</div>
+    <div className="Weather-description">Clear sky</div>
+  <div className="row">
+    <div className="col-1">
       <img
         src="https://openweathermap.org/img/wn/04d@2x.png"
         className="Weather-icon"
         alt="weather icon"
       />
-      <div className="Weather-main-temperature">{Math.round(temperature)}°C</div>
     </div>
-    <div>
+    <div className="col-7">
+      <span className="Weather-main-temperature">{Math.round(temperature)}</span><span className="Weather-units">°C | °F</span>
+      </div>
+
+    <div className="col-4">
       <div className="Weather-condition-list">
         <ul>
           <li>High: 19°C</li>
@@ -72,6 +65,6 @@ export default function Weather(props) {
       </div>
     </div>
     </div>
-
+    </div>
   );
 }
