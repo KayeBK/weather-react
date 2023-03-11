@@ -13,11 +13,11 @@ export default function App() {
           <div className="col-5">
             <div className="d-flex search-form">
               <span className="units">
-                <a href="#" id="celsius" className="active">
+                <a href="/#" id="celsius" className="active">
                   °C
                 </a>
                 |
-                <a href="#" id="fahrenheit">
+                <a href="/#" id="fahrenheit">
                   °F
                 </a>
               </span>
