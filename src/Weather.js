@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -10,6 +11,7 @@ export default function Weather(props) {
       setWeatherData({
         ready: true,
         city: response.data.name,
+        date: new Date(response.data.dt * 1000),
         temperature: response.data.main.temp,
         humidity: response.data.main.humidity,
         wind: response.data.wind.speed        
@@ -22,7 +24,9 @@ if (weatherData.ready) {
     <div>
     <div className="row">
       <div className="col-8">
-        Last updated: <span className="Weather-current-time">12PM Feb 17 2023</span>
+        Last updated: <span className="Weather-current-time">
+          <FormattedDate date={weatherData.date} />
+          </span>
       </div>
 
       <div className="col-4 Weather-search-form">
