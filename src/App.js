@@ -1,15 +1,11 @@
 import './App.css';
 import Weather from "./Weather";
-import WeatherForecast from "./WeatherForecast";
 
 export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <Weather city="San Antonio" />
-        <h3>6 Day Forecast</h3>
-        <hr />
-        <WeatherForecast />
+        <Weather defaultCity="San Antonio" />
       </div>
 
       <div className="App-link-footer">

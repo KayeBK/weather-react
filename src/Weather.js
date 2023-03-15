@@ -3,14 +3,21 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
-    let [temperature, setTemperature] = useState(null);
-    function showTemperature(response) {
-        setTemperature(response.data.main.temp);
+  let [weatherData, setWeatherData] = useState({ ready: false });
+
+    function handleResponse(response) {
+      console.log(response.data);
+      setWeatherData({
+        ready: true,
+        city: response.data.name,
+        temperature: response.data.main.temp,
+        humidity: response.data.main.humidity,
+        wind: response.data.wind.speed        
+      });
     }
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=ab8e7ef210556986d1c9a75d6007b825&units=metric`;
-    axios.get(url).then(showTemperature);
+    
 
-
+if (weatherData.ready) {
   return (
     <div>
     <div className="row">
@@ -41,7 +48,7 @@ export default function Weather(props) {
       </div>
     </div>
 
-    <div className="Weather-city-name">{props.city}</div>
+    <div className="Weather-city-name">{weatherData.city}</div>
     <div className="Weather-description">Clear sky</div>
   <div className="row">
     <div className="col-1">
@@ -52,7 +59,7 @@ export default function Weather(props) {
       />
     </div>
     <div className="col-7">
-      <span className="Weather-main-temperature">{Math.round(temperature)}</span><span className="Weather-units">°C | °F</span>
+      <span className="Weather-main-temperature">{Math.round(weatherData.temperature)}</span><span className="Weather-units">°C | °F</span>
       </div>
 
     <div className="col-4">
@@ -60,11 +67,31 @@ export default function Weather(props) {
         <ul>
           <li>High: 19°C</li>
           <li>Low: 10°C</li>
-          <li>Humidity: 10%</li>
+          <li>Humidity: {weatherData.humidity} %</li>
+          <li>Wind Speed: {weatherData.wind} km/h</li>
         </ul>
       </div>
     </div>
     </div>
+    <h3>6 Day Forecast</h3>
+        <hr />
+    <div className="Weather-forecast">
+        <div className="row">
+        <div className="col-2">
+            <div className="Weather-forecast-day">Thu</div>
+            <div className="Weather-forecast-temperatures">
+                <span className="Weather-forecast-temperature-max">19</span>
+                <span className="Weather-forecast-temperature-min">10</span>
+            </div>
+        </div>
+        </div>
+    </div>
     </div>
   );
+} else {
+  const apiKey = `ab8e7ef210556986d1c9a75d6007b825`
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
+    axios.get(url).then(handleResponse);
+    return "Loading..";
+}
 }
