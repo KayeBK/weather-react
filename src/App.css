@@ -2,28 +2,19 @@
   font-family: sans-serif;
 }
 
-body {
-  background: radial-gradient(
-    506px at 50.6% 16.5%,
-    rgb(239, 252, 250) 5.5%,
-    rgb(154, 192, 206) 100.2%
-  );
-}
-
 .container {
   background: #fff;
   border: 1px solid #fff;
   border-radius: 50px;
   display: block;
-  margin: 100px auto 0 auto;
+  margin-top: 100px;
   max-width: 60%;
-  padding: 40px;
+  padding: 75px;
 }
 
 .App-link-footer {
   font-size: 16px;
   color: white;
-  padding-bottom: 234px;
   text-align: center;
 }
 
