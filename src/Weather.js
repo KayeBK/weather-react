@@ -19,7 +19,8 @@ export default function Weather(props) {
         temp_min: response.data.main.temp_min,
         humidity: response.data.main.humidity,
         wind: response.data.wind.speed,
-        description: response.data.weather[0].description  
+        description: response.data.weather[0].description,
+        icon: response.data.weather[0].icon
       });
     }
   function search() {
@@ -70,7 +71,7 @@ if (weatherData.ready) {
         </form>
       </div>
     </div>
-<WeatherInfo data={weatherData} />
+    <WeatherInfo data={weatherData} />
     <hr />
     <h3 className="text-center">6 Day Forecast</h3>
     <hr />
