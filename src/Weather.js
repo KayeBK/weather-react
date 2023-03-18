@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -12,6 +13,7 @@ export default function Weather(props) {
       console.log(response.data);
       setWeatherData({
         ready: true,
+        coordinates: response.data.coord,
         city: response.data.name,
         date: new Date(response.data.dt * 1000),
         temperature: response.data.main.temp,
@@ -24,7 +26,7 @@ export default function Weather(props) {
       });
     }
   function search() {
-    const apiKey = `ab8e7ef210556986d1c9a75d6007b825`
+    const apiKey = `eae061c95483dd066657bfc7525418ed`
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(handleResponse);
   }
@@ -73,19 +75,9 @@ if (weatherData.ready) {
     </div>
     <WeatherInfo data={weatherData} />
     <hr />
-    <h3 className="text-center">6 Day Forecast</h3>
+    <h3 className="forecast-title">Daily Forecast</h3>
     <hr />
-    <div className="Weather-forecast">
-        <div className="row">
-        <div className="col-2">
-            <div className="Weather-forecast-day">Thu</div>
-            <div className="Weather-forecast-temperatures">
-                <span className="Weather-forecast-temperature-max">19</span>
-                <span className="Weather-forecast-temperature-min">10</span>
-            </div>
-        </div>
-        </div>
-    </div>
+    <WeatherForecast coordinates={weatherData.coordinates}/>
     </div>
   );
 } else {

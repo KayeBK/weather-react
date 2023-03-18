@@ -1,0 +1,7 @@
+.WeatherForecast {
+    text-align: center;
+  }
+
+.WeatherForecast-day, .WeatherForecast-temperature-max {
+    font-weight: bold;
+}

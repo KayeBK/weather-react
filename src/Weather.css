@@ -62,10 +62,8 @@
   margin: 0 auto;
   }
   
-  .Weather-forecast {
-    text-align: center;
-  }
-  
-  .Weather-forecast-temperature-max {
-    font-weight: bold;
-  }
+.forecast-title {
+  font-style: italic;
+  text-align: center;
+  font-size: 25px;
+}
